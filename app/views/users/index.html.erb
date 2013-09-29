@@ -1,0 +1,8 @@
+<div id="users"></div>
+
+<script type="text/javascript">
+    $(function() {
+        window.router = new SendEmailTest.Routers.UsersRouter({users: <%= @users.to_json.html_safe -%>});
+        Backbone.history.start();
+    });
+</script>
