@@ -22,8 +22,12 @@ class SendEmailTest.Views.Users.NewView extends Backbone.View
 
     $.ajax
       type: "POST"
-      url: "url"
-      data: $("#form").serialize()
+      url: "/users/new_address"
+      data: $("#new-user").serialize()
+      success: (response) ->
+        alert(response.message)
+      error: (jqXHR, status, error) ->
+        alert error
 
   render: ->
     $(@el).html(@template(@model.toJSON() ))

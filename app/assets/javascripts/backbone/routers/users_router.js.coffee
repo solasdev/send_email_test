@@ -6,8 +6,6 @@ class SendEmailTest.Routers.UsersRouter extends Backbone.Router
   routes:
     "new"      : "newUser"
     "index"    : "index"
-    ":id/edit" : "edit"
-    ":id"      : "show"
     ".*"        : "index"
 
   newUser: ->
@@ -18,14 +16,4 @@ class SendEmailTest.Routers.UsersRouter extends Backbone.Router
     @view = new SendEmailTest.Views.Users.IndexView(users: @users)
     $("#users").html(@view.render().el)
 
-  show: (id) ->
-    user = @users.get(id)
 
-    @view = new SendEmailTest.Views.Users.ShowView(model: user)
-    $("#users").html(@view.render().el)
-
-  edit: (id) ->
-    user = @users.get(id)
-
-    @view = new SendEmailTest.Views.Users.EditView(model: user)
-    $("#users").html(@view.render().el)
